@@ -2,10 +2,32 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #111827;
+  --surface: #ffffff;
+  --card-bg: #ffffff;
+  --card-fg: #111827;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --accent: #2563eb;
+  --overlay-start: rgba(0,0,0,0.8);
+  --overlay-mid: rgba(0,0,0,0.4);
 }
 
-@theme inline {
+/* Respect theme class toggled by JS (ThemeProvider) */
+.dark {
+  --background: #0b1220;
+  --foreground: #f8fafc;
+  --surface: #0f1724;
+  --card-bg: #0b1220;
+  --card-fg: #f8fafc;
+  --muted: #9ca3af;
+  --border: #1f2937;
+  --accent: #60a5fa;
+  --overlay-start: rgba(255,255,255,0.85);
+  --overlay-mid: rgba(255,255,255,0.35);
+}
+
+@theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
@@ -19,8 +41,72 @@
   }
 }
 
-body {
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  padding: 0;
+  margin: 0;
+  font-size: 16px;
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer utilities {
+  @keyframes slide-down {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-slide-down {
+    animation: slide-down 0.3s ease-out;
+  }
+
+  /* Text overflow utilities for consistent handling */
+  .text-truncate {
+    @apply truncate;
+  }
+
+  .text-line-clamp-1 {
+    @apply line-clamp-1;
+  }
+
+  .text-line-clamp-2 {
+    @apply line-clamp-2;
+  }
+
+  .text-line-clamp-3 {
+    @apply line-clamp-3;
+  }
+
+  /* Anti-aliasing and rendering fixes */
+  .antialiased-sharp {
+    @apply antialiased;
+    backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .border-clip-sharp {
+    isolation: isolate;
+    transform: translate3d(0, 0, 0);
+  }
+
+  /* Theme-aware utility classes */
+  .bg-theme { background-color: var(--background); }
+  .text-theme { color: var(--foreground); }
+  .bg-surface { background-color: var(--surface); }
+  .text-surface { color: var(--card-fg); }
+  .text-muted { color: var(--muted); }
+  .border-theme { border-color: var(--border); }
+  .bg-accent { background-color: var(--accent); }
+  .text-accent { color: var(--accent); }
 }
