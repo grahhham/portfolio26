@@ -1,30 +1,35 @@
+import React, { ReactNode } from 'react';
+
+enum BUTTON_STYLE {
+  block = 0,
+  flat
+}
+
 interface ButtonProps {
   id: string;
-  text: string;
+  children: ReactNode;
+  className?: string;
+  style?: BUTTON_STYLE;
   onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-export function Button({ id, text, onClick}: ButtonProps) {
+export function Button({ id, children, className, style=BUTTON_STYLE.block, onClick}: ButtonProps) {
   return (
     <div
-      className={`
-          inline-block
-          border-r-1
-          bg-solid-shadow-2
-      `}
+      className="button-container"
     >
       <button
         id={id}
-        className={`
-          px-2 py-1
-          bg-fg
-          block transition-all duration-240
-          hover:-translate-1 focus:-translate-1
-          active:duration-60 active:translate-y-1 active:translate-x-0 active:bg-solid-shadow
-        `}
+        className={
+          className+" card-button" + (
+            style == BUTTON_STYLE.flat ? " flat" : (
+            style == BUTTON_STYLE.block ?  " block" :
+            ""
+          ))
+        }
         onClick={onClick}
       >
-          {text}
+          {children}
       </button>
     </div>
   )
