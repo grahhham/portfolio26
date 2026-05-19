@@ -239,15 +239,14 @@ button {
   transition: all 0.3s ease;
 }
 @container scroller scroll-state(scrollable: top) {
-  #nav {
-    padding: 0rem;
-  }
   #nav-card:not(:hover):not(:has(*:focus)) {
     flex-basis: 50%;
   }
 }
 @container scroller scroll-state(scrolled: top) {
   #nav {
+    transition-delay: 0.3s;
+    transition-duration: 0.6s;
     transform: translateX(-50%) translateY(0%);
   }
 }
