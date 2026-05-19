@@ -28,10 +28,10 @@ export function Header() {
         <Card
           id="nav-card"
           data={{
-            img_url: "/test_logo.jpg",
+            img_url: theme == "dark" ? "/logo-dark3.png" : "/logo-light3.png",
             title: SITE_TITLE,
-            w: 832,
-            h: 120
+            w: 1080,
+            h: 75
           }}
         >
           <li className="button-container">
@@ -73,10 +73,10 @@ export function Header() {
         <Card
           id="nav-allowance-card"
           data={{
-            img_url: "/test_logo.jpg",
+            img_url: theme == "dark" ? "/logo-dark3.png" : "/logo-light3.png",
             title: SITE_TITLE,
-            w: 832,
-            h: 120
+            w: 1080,
+            h: 75
           }}
         >
           <li className="button-container">
