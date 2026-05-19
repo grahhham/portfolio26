@@ -1,6 +1,5 @@
 // import React, { ReactNode } from 'react';
 
-import Image from "next/image";
 import { ReactNode } from "react";
 
 import ImageFrame from "@/components/interface/ImageFrame";
