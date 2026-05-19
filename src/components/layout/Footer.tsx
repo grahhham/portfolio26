@@ -1,3 +1,7 @@
 export function Footer() {
-  return <footer className="max" />;
+  return ( 
+    <footer id="footer" className="max-box">
+      Graham Cruickshank &copy; 2026 {new Date().getFullYear() == 2026 ? "" : " - "+new Date().getFullYear()}
+    </footer>
+  );
 }

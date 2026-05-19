@@ -1,8 +1,11 @@
 "use client";
 
+import { FaGithub } from 'react-icons/fa';
+
 import { Card } from "@/components/layout/Card";
-import { Button } from "@/components/interface/Button";
+import { Button, BUTTON_STYLE } from "@/components/interface/Button";
 import { useTheme } from "next-themes";
+import Link from "next/link";
 
 export function Header() {
 
@@ -11,18 +14,44 @@ export function Header() {
   return (
     <>
       <div id="nav" className="max-box padded">
+        <Button
+          id="theme-shortcut"
+          styleType={BUTTON_STYLE.flat}
+          onClick={(/* e */) => {setTheme(theme == "dark" ? "light" : "dark")}}
+        >
+          <span style={{fontSize: "1.5rem", lineHeight: "1.5rem"}} className="light-display">☾</span>
+          <span style={{fontSize: "1.5rem", lineHeight: "1.5rem"}} className="dark-display">☼︎</span>
+        </Button>
+        {/* Copy all contents from here on into nav-allowance */}
+        {/* Don't forget to update ID's */}
         <Card
           id="nav-card"
           url="/test_logo.jpg"
           title="Welcome to my portfolio."
         >
-          <div>
-            <Button
+          <li className="button-container">
+            {/* Copying Button component styling */}
+            <Link 
               id="home"
-            onClick={(/* e */) => {}}
+              href={"/"}
+              className="card-button"
             >
               Home
-            </Button>
+            </Link>
+          </li>
+          <li className="button-container">
+            {/* Copying Button component styling */}
+            <Link 
+              id="github"
+              href={"https://github.com/grahhham"}
+              target={"_blank"}
+              className="card-button"
+              style={{lineHeight: "1rem"}}
+            >
+              <FaGithub className="icon" />
+            </Link>
+          </li>
+          <li>
             <Button
               id="theme"
               onClick={(/* e */) => {setTheme(theme == "dark" ? "light" : "dark")}}
@@ -30,7 +59,7 @@ export function Header() {
               <span className="light-display">Dark</span>
               <span className="dark-display">Light</span>
             </Button>    
-          </div>
+          </li>
         </Card>
       </div>
       <div id="nav-allowance" inert className="max-box padded">
@@ -39,22 +68,38 @@ export function Header() {
           url="/test_logo.jpg"
           title="Welcome to my portfolio."
         >
-          <div>
-            <Button
-              id="home-inert"
-            onClick={(/* e */) => {}}
+          <li className="button-container">
+            {/* Copying Button component styling */}
+            <Link 
+              id="home-allowance"
+              href={"/"}
+              className="card-button"
             >
               Home
-            </Button>
+            </Link>
+          </li>
+          <li className="button-container">
+            {/* Copying Button component styling */}
+            <Link 
+              id="github-allowance"
+              href={"https://github.com/grahhham"}
+              target={"_blank"}
+              className="card-button"
+              style={{lineHeight: "1rem"}}
+            >
+              <FaGithub className="icon" />
+            </Link>
+          </li>
+          <li>
             <Button
-              id="theme-inert"
+              id="theme-allowance"
               onClick={(/* e */) => {setTheme(theme == "dark" ? "light" : "dark")}}
             >
               <span className="light-display">Dark</span>
               <span className="dark-display">Light</span>
             </Button>    
-          </div>
-        </Card>
+          </li>
+       </Card>
       </div>
     </>
   );

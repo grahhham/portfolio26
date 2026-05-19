@@ -11,10 +11,11 @@ interface CardProps {
   title: string;
   url: string;
   children?: ReactNode;
+  nav?: boolean;
   animationDelay?: string;
 }
 
-export function Card({ id, title, url, children, animationDelay }: CardProps) {
+export function Card({ id, title, url, children, nav, animationDelay }: CardProps) {
   return (
     <div
       id={id}
@@ -30,23 +31,44 @@ export function Card({ id, title, url, children, animationDelay }: CardProps) {
         className="card-img img-spacing"
       />
       {/* Hover container */}
-      <div
-        className="hover-container"
-      >
-        {/* Description */}
-        <div
-          className="img-desc"
+      {nav ? 
+        <nav
+          className="hover-container"
+          aria-label="Main Navigation"
         >
-          {title}
-        </div>
-        {/* Control panel */}
-        <ButtonRow
-          id={"btrw"+id}
-        >
-          {children}
-        </ButtonRow>
+          {/* Description */}
+          <div
+            className="img-desc"
+          >
+            {title}
+          </div>
+          {/* Control panel */}
+          <ButtonRow
+            id={"btrw"+id}
+          >
+            {children}
+          </ButtonRow>
 
-      </div>
+        </nav>
+      : 
+        <div
+          className="hover-container"
+        >
+          {/* Description */}
+          <div
+            className="img-desc"
+          >
+            {title}
+          </div>
+          {/* Control panel */}
+          <ButtonRow
+            id={"btrw"+id}
+          >
+            {children}
+          </ButtonRow>
+
+        </div>
+      }
       {/* Image for viewing/interacting*/}
       <ImageFrame
         src={url}

@@ -8,13 +8,13 @@ interface ButtonProps {
 export function ButtonRow({ id, children }: ButtonProps) {
 
   return (
-    <div 
+    <ul 
       id={id}
       className="max flex"
     >
       {children}
       <div className="card-button-spacer">
       </div>
-    </div>
+    </ul>
   )
 }

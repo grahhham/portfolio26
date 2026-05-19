@@ -59,9 +59,6 @@ export default function Deck() {
           const prevSeriesIds = new Set(prevItems.map((item) => item.series_id));
           const trulyNewItems = newItems.filter((item) => !prevSeriesIds.has(item.series_id));
 
-          console.log(updatedItems);
-          console.log(trulyNewItems);
-
           // 4. Combine the updated existing series with the brand-new series
           return [...updatedItems, ...trulyNewItems];
         });
@@ -82,6 +79,31 @@ export default function Deck() {
     fetchNextPage();
 
   }, [page]); // Triggers every time 'page' changes
+
+
+  // Scrolled to bottom listener
+  useEffect(() => {
+    const handleScrollToBottom = () => {
+      if (hasMore && !isLoading) {
+        setPage((prevPage) => prevPage + 1)
+      }
+    };
+
+    const handleScroll = () => {
+      const isAtBottom =
+        window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 5; // 5px offset for safety
+
+      if (isAtBottom) {
+        handleScrollToBottom();
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    // Cleanup the event listener on component unmount
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [hasMore, isLoading]);
+
 
   return (
     <div>
@@ -106,8 +128,9 @@ export default function Deck() {
           id={"more-button"}
           onClick={() => setPage((prevPage) => prevPage + 1)} 
           disabled={isLoading}
+          style={{fontSize: "1.5rem", lineHeight: "1.5rem"}}
         >
-          {isLoading ? 'Loading...' : 'Load More'}
+          {isLoading ? '…' : '+'}
         </Button>
       )}
     </div>

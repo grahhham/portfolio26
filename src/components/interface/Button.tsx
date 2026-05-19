@@ -28,7 +28,7 @@ export function Button({
   const combinedClassName = `${className} card-button${styleClass}`.trim();
 
   return (
-    <div className="button-container">
+    <div id={id+"-container"} className={("button-container"+styleClass).trim()}>
       {/* 3. Spread the remaining props onto the actual button element */}
       <button
         id={id}

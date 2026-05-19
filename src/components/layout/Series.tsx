@@ -1,6 +1,7 @@
 // import React, { ReactNode } from 'react';
 import { Card } from '@/components/layout/Card';
 import { CardDataElement } from '@/types/Data';
+import Link from 'next/link';
 
 interface SeriesProps {
   seriesId: string;
@@ -29,17 +30,17 @@ export function Series({ seriesId, id, cards, name, desc }: SeriesProps) {
               title={card.title}
               animationDelay={(0.3+(i*0.15))+"s"}
             >
-              {/* Copying Button cpomponent styling */}
-              <div className="button-container">
-                <a 
+              {/* Copying Button component styling */}
+              <li className="button-container">
+                <Link 
                   href={card.img_url}
                   target='_blank'
                   rel="noreferrer"
                   className="card-button"
                 >
                   View
-                </a>
-              </div>
+                </Link>
+              </li>
             </Card>
           </li>
         )
