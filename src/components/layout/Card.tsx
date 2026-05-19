@@ -5,17 +5,17 @@ import { ReactNode } from "react";
 
 import ImageFrame from "@/components/interface/ImageFrame";
 import { ButtonRow } from "@/components/layout/ButtonRow";
+import { CardDataElement } from "@/types/Data";
 
 interface CardProps {
   id: string;
-  title: string;
-  url: string;
+  data: CardDataElement;
   children?: ReactNode;
   nav?: boolean;
   animationDelay?: string;
 }
 
-export function Card({ id, title, url, children, nav, animationDelay }: CardProps) {
+export function Card({ id, data, children, nav, animationDelay }: CardProps) {
   return (
     <div
       id={id}
@@ -23,11 +23,18 @@ export function Card({ id, title, url, children, nav, animationDelay }: CardProp
       style={{ animationDelay }}
     >
       {/* Image for spacing*/}
-      <Image
-        src={url}
-        alt={title}
-        width={1000}
-        height={1000}
+      <ImageFrame
+        src={
+          data.img_url+(
+            data.url_suffix ?
+              data.url_suffix + 
+                (data.w_thumb ? data.w_thumb : data.w)
+            : ""
+          )
+        }
+        alt={data.title}
+        width={data.w_thumb ? data.w_thumb : data.w}
+        height={data.h_thumb ? data.h_thumb : data.h}
         className="card-img img-spacing"
       />
       {/* Hover container */}
@@ -40,7 +47,7 @@ export function Card({ id, title, url, children, nav, animationDelay }: CardProp
           <div
             className="img-desc"
           >
-            {title}
+            {data.title}
           </div>
           {/* Control panel */}
           <ButtonRow
@@ -58,7 +65,7 @@ export function Card({ id, title, url, children, nav, animationDelay }: CardProp
           <div
             className="img-desc"
           >
-            {title}
+            {data.title}
           </div>
           {/* Control panel */}
           <ButtonRow
@@ -71,11 +78,19 @@ export function Card({ id, title, url, children, nav, animationDelay }: CardProp
       }
       {/* Image for viewing/interacting*/}
       <ImageFrame
-        src={url}
-        alt={title}
-        width={1000}
-        height={1000}
+        src={
+          data.img_url+(
+            data.url_suffix ?
+              data.url_suffix + 
+                (data.w_thumb ? data.w_thumb : data.w)
+            : ""
+          )
+        }
+        alt={data.title}
+        width={data.w_thumb ? data.w_thumb : data.w}
+        height={data.h_thumb ? data.h_thumb : data.h}
         className={"card-img img-interactive"}
+        hideAlerts={true}
       />
     </div>
 

@@ -26,8 +26,12 @@ export function Header() {
         {/* Don't forget to update ID's */}
         <Card
           id="nav-card"
-          url="/test_logo.jpg"
-          title="Welcome to my portfolio."
+          data={{
+            img_url: "/test_logo.jpg",
+            title: "Welcome to my portfolio.",
+            w: 832,
+            h: 120
+          }}
         >
           <li className="button-container">
             {/* Copying Button component styling */}
@@ -65,8 +69,12 @@ export function Header() {
       <div id="nav-allowance" inert className="max-box padded">
         <Card
           id="nav-allowance-card"
-          url="/test_logo.jpg"
-          title="Welcome to my portfolio."
+          data={{
+            img_url: "/test_logo.jpg",
+            title: "Welcome to my portfolio.",
+            w: 832,
+            h: 120
+          }}
         >
           <li className="button-container">
             {/* Copying Button component styling */}

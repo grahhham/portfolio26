@@ -1,6 +1,11 @@
 export type CardDataElement = {
   img_url: string,
   title: string,
+  w: number,
+  h: number,
+  w_thumb?: number,
+  h_thumb?: number
+  url_suffix?: string,
 }
 
 export type CardDataRow = CardDataElement & {

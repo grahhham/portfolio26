@@ -5,6 +5,7 @@ interface ImageFrameProps extends Omit<ImageProps, 'loading'> {
   // Option to explicitly enable/disable lazy loading
   shouldLazyLoad?: boolean;
   className?: string;
+  hideAlerts?: boolean
 }
 
 interface ImageFrameState {
@@ -30,7 +31,7 @@ class ImageFrame extends Component<ImageFrameProps, ImageFrameState> {
   };
 
   render() {
-    const { src, alt, shouldLazyLoad = true, width, height, className, ...rest } = this.props;
+    const { src, alt, hideAlerts = false, shouldLazyLoad = true, width, height, className, ...rest } = this.props;
     const { isLoading, hasError } = this.state;
 
     // Use "eager" if shouldLazyLoad is false, otherwise default to "lazy"
@@ -38,11 +39,6 @@ class ImageFrame extends Component<ImageFrameProps, ImageFrameState> {
 
     return (
       <>
-        {/* Skeleton Loader: Displayed only while loading */}
-        {isLoading && !hasError && (
-          <div className={`img-skeleton ${className}`} />
-        )}
-
         {/* Fallback Alt Text: Displayed if image fails to load */}
         
         {/* {hasError ? (
@@ -63,6 +59,12 @@ class ImageFrame extends Component<ImageFrameProps, ImageFrameState> {
             className={`${className} ${isLoading ? ' hidden' : ''}`}
           />
         {/* )} */}
+
+        {/* Skeleton Loader: Displayed only while loading */}
+        {isLoading && !hasError && !hideAlerts && (
+          <div className={`img-skeleton card-img`}>
+          </div>
+        )}
       </>
     );
   }

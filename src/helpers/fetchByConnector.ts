@@ -51,8 +51,7 @@ export function getLocalPage(
       
       // Add the cardRow as cardElement to new or existing seriesElement
       packet.data[tempSeriesDataElementIndex].cards.push({
-        img_url: cardRow.img_url,
-        title: cardRow.title,
+        ...cardRow
       })
 
     }        
