@@ -6,6 +6,7 @@ import { Card } from "@/components/layout/Card";
 import { Button, BUTTON_STYLE } from "@/components/interface/Button";
 import { useTheme } from "next-themes";
 import Link from "next/link";
+import { SITE_TITLE } from '../../../lib/config';
 
 export function Header() {
 
@@ -28,7 +29,7 @@ export function Header() {
           id="nav-card"
           data={{
             img_url: "/test_logo.jpg",
-            title: "Welcome to my portfolio.",
+            title: SITE_TITLE,
             w: 832,
             h: 120
           }}
@@ -41,6 +42,7 @@ export function Header() {
               className="card-button"
             >
               Home
+              <span className="button-indicator"></span>
             </Link>
           </li>
           <li className="button-container">
@@ -53,6 +55,7 @@ export function Header() {
               style={{lineHeight: "1rem"}}
             >
               <FaGithub className="icon" />
+              <span className="button-indicator"></span>
             </Link>
           </li>
           <li>
@@ -71,7 +74,7 @@ export function Header() {
           id="nav-allowance-card"
           data={{
             img_url: "/test_logo.jpg",
-            title: "Welcome to my portfolio.",
+            title: SITE_TITLE,
             w: 832,
             h: 120
           }}
@@ -84,6 +87,7 @@ export function Header() {
               className="card-button"
             >
               Home
+              <span className="button-indicator"></span>
             </Link>
           </li>
           <li className="button-container">
@@ -96,6 +100,7 @@ export function Header() {
               style={{lineHeight: "1rem"}}
             >
               <FaGithub className="icon" />
+              <span className="button-indicator"></span>
             </Link>
           </li>
           <li>

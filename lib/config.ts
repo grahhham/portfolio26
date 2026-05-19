@@ -4,6 +4,8 @@ export const DEFAULT_PAGE_SIZE = 2;
 
 export const DEFAULT_CONNECTOR = CONNECTOR.local;
 
+export const SITE_TITLE = "Graham Cruickshank - Portfolio 2026"
+
 export const localSeriesData = [
   {
     series_id: "1",

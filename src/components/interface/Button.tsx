@@ -36,6 +36,7 @@ export function Button({
         {...props} 
       >
         {children}
+        <span className="button-indicator"></span>
       </button>
     </div>
   );

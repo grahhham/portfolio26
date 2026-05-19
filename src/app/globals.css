@@ -218,6 +218,7 @@ li.button-container, li .button-container {
   color: var(--card-fg);
   display: block;
   transition: all 0.3s ease;
+  text-align: center;
 }
 .card-button.flat {
   background: var(--bg);
@@ -245,6 +246,28 @@ li.button-container, li .button-container {
 .card-button-spacer {
   flex: 1; 
   background: var(--card-bg);
+}
+.button-indicator {
+  display: block;
+  width: 50%;
+  height: 2px;
+  margin-top: 2px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 1px;
+  background: var(--card-bg-shade);
+  transition: all 0.3s ease;
+}
+.card-button:hover .button-indicator, .card-button:focus .button-indicator {
+  background: var(--card-fg-tint);
+  width: 100%;
+}
+.card-button.flat .button-indicator {
+  background: var(--fg-tint);
+}
+.card-button.flat:hover .button-indicator, .card-button.flat:focus .button-indicator {
+  background: var(--fg);
+  width: 100%;
 }
 
 #more-button-container {
@@ -297,11 +320,19 @@ li.button-container, li .button-container {
   transition: all 0.3s ease;
 }
 
+#nav-card .img-interactive {
+  height: calc-size(auto, size);
+}
+
 @container scroller scroll-state(scrollable: top) {
   #nav-card:not(:hover):not(:has(*:focus)) {
-    flex-basis: 50%;
+    flex-basis: 80%;
+  }
+  #nav-card:not(:hover):not(:has(*:focus)) .img-interactive {
+    height: 100%;
   }
 }
+
 @container scroller scroll-state(scrolled: top) {
   #nav {
     transition-delay: 0.3s;

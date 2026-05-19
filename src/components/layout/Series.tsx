@@ -44,6 +44,7 @@ export function Series({ seriesId, id, cards, name, desc }: SeriesProps) {
                   className="card-button"
                 >
                   View
+                  <span className="button-indicator"></span>
                 </Link>
               </li>
             </Card>
