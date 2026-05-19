@@ -13,6 +13,10 @@ ul {
   margin: 0;             /* Removes default spacing around the list */
 }
 
+html {
+  container-type: scroll-state;
+  container-name: scroller;
+}
 html, body {
   padding: 0;
   margin: 0;
@@ -44,6 +48,10 @@ button {
   --card-bg-shade: #cccccc;
   --card-fg-tint: #666666;
   --font-size: 16px;
+  
+  --z-nav: 100;
+  --z-modal: 200;
+  --z-attention: 300;
 }
 :root[data-theme="dark"] {
   --bg: #192524;
@@ -208,8 +216,50 @@ button {
 }
 
 .fade-in {
-  animation: fadeIn 0.3s ease-in forwards;
+  animation: fadeIn 0.3s ease forwards;
 }
+
+#nav {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: var(--z-nav);
+  display: flex;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+#nav-allowance {
+  opacity: 0;
+}
+#nav-card {
+  animation: none;
+  opacity: 1;
+  flex: 0 0;
+  flex-basis: 100%;
+  transition: all 0.3s ease;
+}
+@container scroller scroll-state(scrollable: top) {
+  #nav {
+    padding: 0rem;
+  }
+  #nav-card:not(:hover):not(:has(*:focus)) {
+    flex-basis: 50%;
+  }
+}
+@container scroller scroll-state(scrolled: top) {
+  #nav {
+    transform: translateX(-50%) translateY(0%);
+  }
+}
+@container scroller scroll-state(scrolled: bottom) {
+  #nav:not(:hover):not(:has(*:focus)) {
+    transition-delay: 0.3s;
+    transition-duration: 0.6s;
+    transform: translateX(-50%) translateY(-100%);
+    pointer-events: none;
+  }
+}
+
 
 /* ####################
   RESPONSIVE

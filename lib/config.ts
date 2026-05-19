@@ -14,7 +14,9 @@ export const localSeriesData = [
 
 export const localCardData = [
   {
-    img_url: "/test0.jpg",
+    img_url: "https://lh3.googleusercontent.com/d/1J2sItiEfvKvnhrgFUt3JeCrsIsMKAANE=w1000",
+    //img_url: "https://drive.google.com/thumbnail?id=1J2sItiEfvKvnhrgFUt3JeCrsIsMKAANE&sz=w1000",
+    //img_url: "/test0.jpg",
     title: "Test",
     series_id: "1",
   }, {

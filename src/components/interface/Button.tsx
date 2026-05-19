@@ -1,36 +1,42 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, ComponentPropsWithoutRef } from 'react';
 
-enum BUTTON_STYLE {
+export enum BUTTON_STYLE {
   block = 0,
   flat
 }
 
-interface ButtonProps {
-  id: string;
+// 1. Extend ComponentPropsWithoutRef<'button'> to inherit all native HTML button props (like disabled)
+interface ButtonProps extends ComponentPropsWithoutRef<'button'> {
+  // id is already included in standard button attributes, so we don't need to redeclare it unless making it mandatory
+  id: string; 
   children: ReactNode;
   className?: string;
-  style?: BUTTON_STYLE;
-  onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  styleType?: BUTTON_STYLE; // Renamed from 'style' to avoid clashing with React's native HTML inline 'style' prop
 }
 
-export function Button({ id, children, className, style=BUTTON_STYLE.block, onClick}: ButtonProps) {
+// 2. Use the rest operator (...props) to catch everything else passed to the component
+export function Button({ 
+  id, 
+  children, 
+  className = "", 
+  styleType = BUTTON_STYLE.block, 
+  ...props 
+}: ButtonProps) {
+  
+  // Dynamic class assignment
+  const styleClass = styleType === BUTTON_STYLE.flat ? " flat" : " block";
+  const combinedClassName = `${className} card-button${styleClass}`.trim();
+
   return (
-    <div
-      className="button-container"
-    >
+    <div className="button-container">
+      {/* 3. Spread the remaining props onto the actual button element */}
       <button
         id={id}
-        className={
-          className+" card-button" + (
-            style == BUTTON_STYLE.flat ? " flat" : (
-            style == BUTTON_STYLE.block ?  " block" :
-            ""
-          ))
-        }
-        onClick={onClick}
+        className={combinedClassName}
+        {...props} 
       >
-          {children}
+        {children}
       </button>
     </div>
-  )
+  );
 }

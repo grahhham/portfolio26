@@ -27,9 +27,19 @@ export function Series({ seriesId, id, cards, name, desc }: SeriesProps) {
               id={idKey}
               url={card.img_url}
               title={card.title}
-              animationDelay={(0.3+(i*0.2))+"s"}
+              animationDelay={(0.3+(i*0.15))+"s"}
             >
-              Hello
+              {/* Copying Button cpomponent styling */}
+              <div className="button-container">
+                <a 
+                  href={card.img_url}
+                  target='_blank'
+                  rel="noreferrer"
+                  className="card-button"
+                >
+                  View
+                </a>
+              </div>
             </Card>
           </li>
         )

@@ -3,6 +3,7 @@
 // import { useFetch } from '@/hooks/useFetch';
 import { SeriesDataElement } from '@/types/Data';
 import { Series } from '@/components/layout/Series';
+import { Button } from '@/components/interface/Button';
 import { useEffect, useState } from 'react';
 import { Packet } from '@/types/Packet';
 
@@ -101,12 +102,13 @@ export default function Deck() {
         })}
       </ul>
       {hasMore && (
-        <button 
+        <Button 
+          id={"more-button"}
           onClick={() => setPage((prevPage) => prevPage + 1)} 
           disabled={isLoading}
         >
           {isLoading ? 'Loading...' : 'Load More'}
-        </button>
+        </Button>
       )}
     </div>
   );

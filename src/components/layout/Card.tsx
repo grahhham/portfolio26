@@ -25,8 +25,8 @@ export function Card({ id, title, url, children, animationDelay }: CardProps) {
       <Image
         src={url}
         alt={title}
-        width={100}
-        height={100}
+        width={1000}
+        height={1000}
         className="card-img img-spacing"
       />
       {/* Hover container */}
@@ -51,8 +51,8 @@ export function Card({ id, title, url, children, animationDelay }: CardProps) {
       <ImageFrame
         src={url}
         alt={title}
-        width={100}
-        height={100}
+        width={1000}
+        height={1000}
         className={"card-img img-interactive"}
       />
     </div>

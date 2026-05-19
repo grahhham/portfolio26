@@ -44,11 +44,12 @@ class ImageFrame extends Component<ImageFrameProps, ImageFrameState> {
         )}
 
         {/* Fallback Alt Text: Displayed if image fails to load */}
-        {hasError ? (
+        
+        {/* {hasError ? (
           <div className={`img-error ${className}`}>
             {alt || 'Image failed to load'}
           </div>
-        ) : (
+        ) : ( */}
           <Image
             {...rest}
             src={src}
@@ -61,7 +62,7 @@ class ImageFrame extends Component<ImageFrameProps, ImageFrameState> {
             // Ensure the image stays hidden until loaded to prevent flash
             className={`${className} ${isLoading ? ' hidden' : ''}`}
           />
-        )}
+        {/* )} */}
       </>
     );
   }
