@@ -326,7 +326,7 @@ li.button-container, li .button-container {
 
 @container scroller scroll-state(scrollable: top) {
   #nav-card:not(:hover):not(:has(*:focus)) {
-    flex-basis: 80%;
+    flex-basis: 75%;
   }
   #nav-card:not(:hover):not(:has(*:focus)) .img-interactive {
     height: 100%;

@@ -28,7 +28,7 @@ export function Header() {
         <Card
           id="nav-card"
           data={{
-            img_url: theme == "dark" ? "/logo-dark5.png" : "/logo-light5.png",
+            img_url: theme == "dark" ? "/logo-dark-v1.png" : "/logo-light-v1.png",
             title: SITE_TITLE,
             w: 2160,
             h: 160
@@ -73,7 +73,7 @@ export function Header() {
         <Card
           id="nav-allowance-card"
           data={{
-            img_url: theme == "dark" ? "/logo-dark5.png" : "/logo-light5.png",
+            img_url: theme == "dark" ? "/logo-dark-v1.png" : "/logo-light-v1.png",
             title: SITE_TITLE,
             w: 2160,
             h: 160
