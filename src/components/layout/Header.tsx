@@ -27,6 +27,7 @@ export function Header() {
         {/* Don't forget to update ID's */}
         <Card
           id="nav-card"
+          nav={true}
           data={{
             img_url: theme == "dark" ? "/logo-dark-v1.png" : "/logo-light-v1.png",
             title: SITE_TITLE,
@@ -72,6 +73,7 @@ export function Header() {
       <div id="nav-allowance" inert className="max-box padded">
         <Card
           id="nav-allowance-card"
+          nav={true}
           data={{
             img_url: theme == "dark" ? "/logo-dark-v1.png" : "/logo-light-v1.png",
             title: SITE_TITLE,

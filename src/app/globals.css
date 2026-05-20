@@ -120,6 +120,9 @@ button {
   SERIES
 #################### */
 
+.series-container {
+  margin-bottom: 2rem;
+}
 .series-container:after {
   content: "";
   border-left: 1px solid var(--fg);
@@ -140,7 +143,7 @@ button {
   background-color: var(--fg);
 }
 .series-desc {
-  padding: var(--pd-text-sm);
+  padding: var(--pd-text-md);
   font-style: italic;
   width: fit-content;
 }
@@ -201,6 +204,11 @@ button {
 .img-desc {
   padding: var(--pd-text-sm);
   border-bottom: 1px solid var(--card-fg);
+}
+h1.img-desc {
+  margin: 0px;
+  font-size: 1rem;
+  font-weight: normal;
 }
 .button-container {
   background: var(--card-fg);
@@ -363,6 +371,7 @@ li.button-container, li .button-container {
     --rad-sm: 0.5rem;
     --rad-md: 1rem;
     --pd-text-sm: 5px 8px;
+    --pd-text-md: 0.7rem 1rem;
   }
   .max-box.padded:not(:last-of-type) {
     padding-bottom: 0;
@@ -379,8 +388,9 @@ li.button-container, li .button-container {
     margin: 0;
   }
   .series-title {
-    padding: var(--pd-text-sm);
-    padding-left: var(--pd-sm);
+    font-size: 1rem;
+    padding: var(--pd-text-md);
+    padding-left: var(--pd-md);
     margin-top: var(--pd-sm);
     margin-bottom: var(--pd-sm);
     margin-left: calc(-1*var(--pd-md))
@@ -404,14 +414,13 @@ li.button-container, li .button-container {
     --win-max-col: 2;
     --pd-sm: 0.75rem;
     --pd-md: 1.5rem;
-    --pd-text-md: 0.7rem 1rem;
   }
 }
 
 /* XL */
-@media (min-width: 1200px) {
+@media (min-width: 1000px) {
   :root {
-    --win-max-w: 1200px;
+    --win-max-w: 1000px;
   }
   .max-box.padded {
     padding-bottom: var(--pd-md);
@@ -421,7 +430,7 @@ li.button-container, li .button-container {
   }
 }
 /* Just to allow for series-info to spill over */
-@media (min-width: 1400px) {
+@media (min-width: 1300px) {
   .series-flag {
     border-radius: 0;
     border-top-left-radius: var(--rad-sm);
@@ -430,17 +439,20 @@ li.button-container, li .button-container {
   .series-info {
     position: absolute;
     align-items: end;
-    width: 10%;
-    margin-left: calc(-10% - var(--pd-md));
+    width: 18%;
+    margin-left: calc(-18% - var(--pd-md));
   }
   .series-title {
-    padding: var(--pd-text-sm);
+    padding: var(--pd-text-md);
     margin-left: initial;
     margin-top: var(--pd-md);
+    text-align: right;
+    font-size: 1.2rem;
   }
   .series-desc {
     background-color: var(--bg-alt);
     margin-bottom: 0;
+    text-align: right;
   }
   #theme-shortcut-container {
     display: block;
