@@ -43,11 +43,11 @@ export function Card({ id, data, children, nav, animationDelay }: CardProps) {
           aria-label="Main Navigation"
         >
           {/* Description */}
-          <div
+          <h1
             className="img-desc"
           >
             {data.title}
-          </div>
+          </h1>
           {/* Control panel */}
           <ButtonRow
             id={"btrw"+id}
