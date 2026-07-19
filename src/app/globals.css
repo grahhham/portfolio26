@@ -172,10 +172,8 @@ button {
 
 /* Fallback for Safari and Firefox */
 .card-img {
-  flex: 1;
   width: 100%;
   height: auto;
-  object-fit: cover;
 }
 
 @supports (height: calc-size(auto, size)) {
@@ -195,12 +193,7 @@ button {
   transition: all 0.3s ease;
 }
 
-/* Fallback for Safari and Firefox */
-.card:hover .img-interactive, 
-.card:has(*:focus) .img-interactive {
-  height: auto;
-}
-
+/* Fallback for Safari and Firefox, don't do anything */
 @supports (height: calc-size(auto, size)) {
   .card:hover .img-interactive, .card:has(*:focus) .img-interactive {
     height: calc-size(auto, size);
