@@ -404,6 +404,8 @@ li.button-container, li .button-container {
 /* Medium */
 @media (min-width: 768px) {
   :root {
+    --rad-sm: 0.3rem;
+    --rad-md: 0.3rem;
   }
 }
 
@@ -412,6 +414,8 @@ li.button-container, li .button-container {
   :root {
     --win-max-w: 100%;
     --win-max-col: 2;
+    --rad-sm: 0.5rem;
+    --rad-md: 1rem;
     --pd-sm: 0.75rem;
     --pd-md: 1.5rem;
   }
