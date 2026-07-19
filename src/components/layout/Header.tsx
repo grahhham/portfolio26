@@ -16,7 +16,11 @@ export function Header() {
 
   // useEffect only runs on the client, forcing a re-render *after* hydration is safe
   useEffect(() => {
-    setMounted(true);
+    const timer = setTimeout(() => {
+      setMounted(true);
+    }, 0);
+
+    return () => clearTimeout(timer);
   }, []);
 
   // Compute a safe, stable target theme string outside the JSX tags
