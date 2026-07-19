@@ -163,6 +163,8 @@ button {
   margin-bottom: 1rem;
   box-shadow: 3px 3px 6px rgba(0,0,0,0.3);
   opacity: 0;
+  backface-visibility: hidden;
+  transform: translateZ(0);
 }
 .hover-container {
   flex: 1;
@@ -174,6 +176,8 @@ button {
 .card-img {
   width: 100%;
   height: auto;
+  backface-visibility: hidden;
+  transform: translateZ(0);
 }
 
 @supports (height: calc-size(auto, size)) {
