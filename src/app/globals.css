@@ -169,12 +169,24 @@ button {
   flex-direction: column;
   background: var(--card-bg);
 }
+
+/* Fallback for Safari and Firefox */
 .card-img {
   flex: 1;
   width: 100%;
-  height: 100%;
+  height: auto;
   object-fit: cover;
 }
+
+@supports (height: calc-size(auto, size)) {
+  .card-img {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
 .img-spacing {
   opacity: 1;
 }
@@ -182,8 +194,17 @@ button {
   position: absolute;
   transition: all 0.3s ease;
 }
-.card:hover .img-interactive, .card:has(*:focus) .img-interactive {
-  height: calc-size(auto, size);
+
+/* Fallback for Safari and Firefox */
+.card:hover .img-interactive, 
+.card:has(*:focus) .img-interactive {
+  height: auto;
+}
+
+@supports (height: calc-size(auto, size)) {
+  .card:hover .img-interactive, .card:has(*:focus) .img-interactive {
+    height: calc-size(auto, size);
+  }
 }
 
 @keyframes shimmer {
@@ -328,8 +349,10 @@ li.button-container, li .button-container {
   transition: all 0.3s ease;
 }
 
-#nav-card .img-interactive {
-  height: calc-size(auto, size);
+@supports (height: calc-size(auto, size)) {
+  #nav-card .img-interactive {
+    height: calc-size(auto, size);
+  }
 }
 
 @container scroller scroll-state(scrollable: top) {
