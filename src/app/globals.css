@@ -332,7 +332,11 @@ li.button-container, li .button-container {
   z-index: var(--z-nav);
   display: flex;
   justify-content: center;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease, opacity 0.3s ease 0.3s;
+  opacity: 1;
+}
+#nav.shy {
+  opacity: 0;
 }
 #nav-allowance {
   opacity: 0;

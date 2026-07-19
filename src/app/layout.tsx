@@ -37,6 +37,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable}`}
       >
         <ThemeProvider
+          attribute="data-theme"
           defaultTheme="system"
           enableSystem
         >

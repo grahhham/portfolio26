@@ -13,8 +13,8 @@ export function ButtonRow({ id, children }: ButtonProps) {
       className="max flex"
     >
       {children}
-      <div className="card-button-spacer">
-      </div>
+      <li className="card-button-spacer">
+      </li>
     </ul>
   )
 }
