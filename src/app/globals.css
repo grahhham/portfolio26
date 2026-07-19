@@ -245,6 +245,7 @@ li.button-container, li .button-container {
   display: block;
   transition: all 0.3s ease;
   text-align: center;
+  will-change: transform;
 }
 .card-button.flat {
   background: var(--bg);
